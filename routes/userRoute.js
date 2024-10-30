@@ -33,7 +33,7 @@ router.get('/api/users', async (req, res) => {
 router.get('/api/users/:id', async (req, res) => {
     try {
         const user = await User.findById(req.params.id); //get user by id from the database
-        if (!user) return res.status(404).json({ message: 'User not found'});
+        if (!user) return res.status(404).json({ message: 'User not found in the database'});
         res.status(200).json(user); //respond with the user data
     } catch (error) {
         res.status(500).json({ message: 'Error fetching user', error: error.message});
